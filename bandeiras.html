@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+      <style>
+        body{ background: rgb(114, 114, 114);
+
+        }
+    canvas{
+        border: 3 solid rgb(185, 31, 31);
+        background: rgb(192, 39, 39);
+    }
+    
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Por Arthur K Mene e Ignácio Fernandes</h1>
+    <br>
+    <h1>Maldivas</h1>
+    <canvas id="quadro" width="600" height="400"></canvas>
+
+    <h1>Pakistão<object data="" type=""></object></h1>
+    <canvas id="quadroq" width="600" height="400"></canvas>
+    
+    <script>
+        let Try = 0
+        let canvas = document.getElementById('quadro')
+        let ctx = canvas.getContext('2d')
+        ctx.fillStyle = "#2C8D36"
+        ctx.linewidth = 2
+        ctx.fillRect(100,100,400,200)
+        ctx.beginPath()
+        ctx.arc(300, 200, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.closePath()
+        
+        ctx.beginPath()
+        ctx.arc(310, 200, 45, 0, 2 * Math.PI);
+        ctx.fillStyle = "#2C8D36"
+        ctx.fill();
+        ctx.closePath()
+
+        let canvasq = document.getElementById('quadroq')
+        let ctxq = canvasq.getContext('2d')
+
+        ctxq.fillStyle = "white"
+        ctxq.linewidth = 2
+        ctxq.fillRect(0,0,100,400)
+        ctxq.fill()
+
+        ctxq.fillStyle = "#2C8D36"
+        ctxq.linewidth = 2
+        ctxq.fillRect(100,0,500,400)
+        ctxq.fill()
+
+        ctxq.fillStyle = "white"
+        ctxq.linewidth = 2
+        ctxq.beginPath()
+        ctxq.arc(300, 200, 135, 0, 2 * Math.PI);
+        ctxq.fill();
+        ctxq.closePath()
+
+        ctxq.fillStyle = "#2C8D36"
+        ctxq.beginPath()
+        ctxq.arc(330, 180, 115, 0, 2 * Math.PI);
+        ctxq.fill();
+        ctxq.closePath()
+
+
+
+
+        function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
+    let rot = Math.PI / 2 * 3;
+    let x = cx;
+    let y = cy;
+    let step = Math.PI / spikes;
+
+    ctxq.beginPath();
+    ctxq.moveTo(cx, cy - outerRadius);
+    for (let i = 0; i < spikes; i++) {
+        x = cx + Math.cos(rot) * outerRadius;
+        y = cy + Math.sin(rot) * outerRadius;
+        ctxq.lineTo(x, y);
+        rot += step;
+
+        x = cx + Math.cos(rot) * innerRadius;
+        y = cy + Math.sin(rot) * innerRadius;
+        ctxq.lineTo(x, y);
+        rot += step;
+    }
+    ctxq.lineTo(cx, cy - outerRadius);
+    ctxq.closePath();
+    ctxq.fillStyle = 'white';
+    ctxq.fill();
+}
+
+drawStar(400, 100, 5, 30, 15);
+
+       
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
